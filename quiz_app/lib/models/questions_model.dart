@@ -25,7 +25,7 @@ class Question {
         id: json["id"],
         questions: json["questions"],
         category: json["category"],
-        options: json["options"],
+        options: List<String>.from(json['options']),
         answer: json["answer"],
       );
 }

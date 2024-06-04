@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:quiz_app/config/app_images.dart';
-import 'package:quiz_app/views/admin/admin_dashboard.dart';
+import 'package:get/get.dart';
+import '../controllers/question_controller.dart';
+import '../config/app_images.dart';
+import '../views/admin/admin_dashboard.dart';
 import '../views/quiz_category.dart';
 import '../utils/constants.dart';
 
 class WelcomeScreen extends StatelessWidget {
   final TextEditingController userNameController = TextEditingController();
+  final QuestionController name = Get.put(QuestionController());
 
   WelcomeScreen({super.key});
 
@@ -30,7 +31,7 @@ class WelcomeScreen extends StatelessWidget {
                 children: [
                   const Spacer(flex: 2),
                   Text(
-                    "Let's Take Quiz",
+                    "Let's Test you Knowledge",
                     style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -39,6 +40,8 @@ class WelcomeScreen extends StatelessWidget {
                   const Text("Enter your information below"),
                   const Spacer(), // it will take 1/6 of the screen
                   TextField(
+                    keyboardType: TextInputType.text,
+                    textInputAction: TextInputAction.done,
                     controller: userNameController,
                     decoration: const InputDecoration(
                       filled: true,
@@ -53,10 +56,11 @@ class WelcomeScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       final userName = userNameController.text;
+                      name.userName = userName;
                       if (userName == "Admin" || userName == "admin") {
-                        Get.to(AdminDashboard());
+                        Get.to(() => const AdminDashboard());
                       } else {
-                        Get.to(QuizCategoryScreen());
+                        Get.to(() => QuizCategoryScreen());
                       }
                     },
                     child: Container(
