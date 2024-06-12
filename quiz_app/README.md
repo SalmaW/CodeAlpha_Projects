@@ -10,9 +10,12 @@ Quiz App is a Flutter application where users can add categories containing seve
 
 # Packages Used
 ```dart
-get: ^4.6.6  #For navigation management.
-flutter_svg: ^2.0.9  #For displaying SVG images.
-shared_preferences: ^2.2.3  #For storing simple data locally.
+#For navigation management.
+get: ^4.6.6
+#For displaying SVG images.
+flutter_svg: ^2.0.9
+#For storing simple data locally.
+shared_preferences: ^2.2.3 
 ```
 
 # Usage
