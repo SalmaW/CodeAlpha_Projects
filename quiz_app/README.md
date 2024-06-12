@@ -9,7 +9,7 @@ Quiz App is a Flutter application where users can add categories containing seve
 - Score Tracking: Users receive a score at the end of each quiz.
 
 # Packages Used
-```dart
+```yaml
 #For navigation management.
 get: ^4.6.6
 #For displaying SVG images.
